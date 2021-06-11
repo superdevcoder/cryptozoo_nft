@@ -1,0 +1,61 @@
+extends layout
+
+block content    
+  #ShoppableVid.cz__outer
+    .sv__feed
+    .sv__filter(data-filter="all")
+      span.sv__filter-current.sv-js(data-action="toggle filters") Explore
+        .sv__filter-options
+          .sv__filter-row
+            label Find Animals
+            ul.sv__filter-list.sv__filter-influencers.sv__filter-type-single(data-filter="animal_name", data-type="single")
+          #TagsFilter.sv__filter-row
+            label Tags
+            ul.sv__filter-list.sv__filter-tags.sv__filter-type-multi(data-filter="tags", data-type="multi")
+          .sv__filter-buttons
+            a.sv-js.button(data-action="apply filters") Apply Filters
+            a.sv-js.button.inverted(data-action="clear filters") Clear Filters
+
+    .sv__buttons
+      //
+        a.sv__buttons-button.sv__buttons-cart(data-name="cart")
+          i.fas.fa-shopping-cart.fa-2x(style="color:white; text-indent: -2px;")
+      a.sv__buttons-button.sv-js(data-action="open popup", data-name="info")
+        i.fas.fa-info-circle.fa-2x
+        span INFO
+      a.sv__buttons-button.sv-js(data-action="open popup", data-name="yield")
+        i.fas.fa-money-bill-wave.fa-2x
+        span YIELD
+      a.sv__buttons-button.sv-js(data-action="open popup", data-name="bid")
+        i.fas.fa-dollar-sign.fa-2x
+        span BID
+      a.sv__buttons-button.sv-js(data-action="open popup", data-name="breed")
+        i.fas.fa-paw.fa-2x
+        span BREED
+
+    .sv__popups.sv-js(data-action="close popup")
+      .sv__popups-popup(data-name="info")
+        h2 Backstory
+        .sv__popups-popup__inner
+      .sv__popups-popup(data-name="shop")
+        h2 What to Bring
+        .sv__popups-popup__inner.sv__shop
+      .sv__popups-popup(data-name="book")
+        h2 Where to Stay
+        .sv__popups-popup__inner.sv__book
+
+    .cz__menu
+      .cz__menu-item
+        i.fas.fa-piggy-bank
+      .cz__menu-item
+        i.fas.fa-certificate
+      .cz__menu-item
+        i.fas.fa-home
+      .cz__menu-item
+        i.fas.fa-hamburger
+      a.cz__menu-item(href="/account")
+        i.fas.fa-user-circle
+
+
+block scripts
+  script(src="/javascripts/feed.js")

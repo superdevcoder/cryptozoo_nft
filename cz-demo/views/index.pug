@@ -1,0 +1,37 @@
+extends layout
+    
+block content
+
+  main#HomePage
+    #HomePage-inner
+      img(src="/images/logo.jpg", alt="CryptoZoo")
+
+  script.
+    window.addEventListener('load', async () => {
+      // Modern dapp browsers...
+      if (window.ethereum) {
+          window.web3 = new Web3(ethereum);
+          try {
+              // Request account access if needed
+              await ethereum.enable();
+              //- web3.eth.sendTransaction({/* ... */});
+              let user = {}
+              user.name = ethereum.selectedAddress
+              localStorage.setItem('czUser', JSON.stringify(user))
+              window.location.href = '/feed'
+          } catch (error) {
+              // User denied account access...
+              window.location.href = '/'
+          }
+      }
+      // Legacy dapp browsers...
+      else if (window.web3) {
+          window.web3 = new Web3(web3.currentProvider);
+          // Acccounts always exposed
+          web3.eth.sendTransaction({/* ... */});
+      }
+      // Non-dapp browsers...
+      else {
+          console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+      }
+    });

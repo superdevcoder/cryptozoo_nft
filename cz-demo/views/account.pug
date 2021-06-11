@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  main#AccountPage
+    img#Logo(src="/images/logo.jpg", alt="CryptoZoo")
+    h2 My Account
+
+    #AccountDetails
+
+    .account-utils 
+      a.ac-js(data-action="logout") Home
+
+    #HatchModal.modal.hidden.-fixed(data-modal-name="hatch egg")
+      .modal-close
+      h2 
+      video.hidden(muted="true", preload, playsinline, src="/videos/hatch_mobile.mp4")
+      video.hidden(muted="true", preload, playsinline, src="/videos/hatch_mobile_hybrid.mp4")
+      img#HatchModal-egg(src="/images/egg.png", alt="")
+
+    #BreedModal.modal.hidden.-fixed(data-modal-name="breed")
+      .modal-close
+      h2 Select animals to breed
+      .breed-row
+        .breed-animal
+          .breed-dropzone
+        .breed-animal
+          .breed-dropzone
+
+block scripts
+  script(src="/javascripts/account.js")
